@@ -3,9 +3,9 @@
   gather_facts: false
   hosts: csr
   vars:
-    ssm: ssm.recurve-it.com
+    ssm: ssm.example.com
     int: g1
-    token: YzY0YTZiODgtMjFiMy00NGNlLWE4MDUtYzE3NTdjNWU1MzE1LTI0NzEzNzgw%0AOTE1NDd8SnBBUk5FaEZDbHQ0azFraUQzbktheUlnaVlYeXowZDBPenU3RjRu%0AZ0xuVT0%3D%0A
+    token: BUk5FaEZDbHQ0azFraUQzbktheUlnaVlYeXowZDBPenU3RjRu%0AZ0xuVT0%3D%0A
 
   tasks:
     - name: disable tac call-home
