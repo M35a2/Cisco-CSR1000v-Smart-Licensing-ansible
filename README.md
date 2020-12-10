@@ -1,5 +1,7 @@
 # Cisco-CSR1000v-Smart-Licensing
 
+built for on-prem smart license servers. 
+
 Tested on CSR1000v running 16.12.4a
 
 required changes:
