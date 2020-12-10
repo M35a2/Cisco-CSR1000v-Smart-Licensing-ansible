@@ -1,0 +1,39 @@
+---
+- name: smart licensing for iosxe
+  gather_facts: false
+  hosts: csr
+  vars:
+    ssm: ssm.recurve-it.com
+    int: g1
+    token: YzY0YTZiODgtMjFiMy00NGNlLWE4MDUtYzE3NTdjNWU1MzE1LTI0NzEzNzgw%0AOTE1NDd8SnBBUk5FaEZDbHQ0azFraUQzbktheUlnaVlYeXowZDBPenU3RjRu%0AZ0xuVT0%3D%0A
+
+  tasks:
+    - name: disable tac call-home
+      ios_config:
+        parents: call-home
+        commands: 
+          - profile CiscoTAC-1
+          - no active
+      
+    - name: configure on-prem call-home
+      ios_config:
+        parents: call-home    
+        commands: 
+          - profile Sat-Server
+          - active
+          - reporting smart-licensing-data
+          - destination transport-method http
+          - no destination transport-method email
+          - destination address http https://{{ ssm }}/Transportgateway/services/DeviceRequestHandler
+    
+    - name: set http interface
+      ios_config:
+        commands: 
+          - http client source interface {{ int }}
+    
+    - name: register CSR to SSM
+      ios_command:
+        commands: 
+          - license smart register idtoken {{ token }} Force
+
+         

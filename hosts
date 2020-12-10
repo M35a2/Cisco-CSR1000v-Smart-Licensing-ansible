@@ -1,0 +1,14 @@
+---
+## Ansible Hosts file for lab
+
+all:
+  hosts:
+    csr:
+      ansible_host: 10.255.1.28
+      ansible_user: ansible
+      ansible_password: password
+      validate_certs: false
+      ansible_connection: network_cli
+      ansible_network_os: ios
+      ansible_become: yes
+      ansible_become_method: enable
