@@ -23,7 +23,7 @@ edit vars:
 
  - dns name
  
- - nterface
+ - interface
  
  - token
 
