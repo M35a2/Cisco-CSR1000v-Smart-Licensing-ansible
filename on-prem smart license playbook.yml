@@ -30,6 +30,13 @@
       ios_config:
         commands: 
           - http client source interface {{ int }}
+         
+    - name: certificate revocation check
+      ios_config:
+        parents: crypto pki trustpoint SLA-TrustPoint
+        commands:
+          - enrollment terminal
+          - revocation-check none
     
     - name: register CSR to SSM
       ios_command:
