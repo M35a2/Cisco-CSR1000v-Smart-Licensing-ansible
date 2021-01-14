@@ -31,6 +31,13 @@
         commands: 
           - http client source interface {{ int }}
 
+    - name: certificate revocation check
+      ios_config:
+        parents: crypto pki trustpoint SLA-TrustPoint
+        commands:
+          - enrollment terminal
+          - revocation-check none
+
     - name: Device led conversion to SSM
       ios_command:
         commands: license smart register idtoken {{ token }} Force
