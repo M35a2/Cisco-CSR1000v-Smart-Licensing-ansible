@@ -6,6 +6,8 @@
     ssm: ssm.example.com
     int: g1
     token: FaEZDbHQ0azFraUQzbktheUlnaVlYeXowZDBPenU3RjRu%0AZ0xuVT0%3D%0A
+    dns: 8.8.8.8
+    domain: example.com
 
   tasks:
     - name: disable tac call-home
@@ -26,10 +28,12 @@
           - no destination transport-method email
           - destination address http https://{{ ssm }}/Transportgateway/services/DeviceRequestHandler
         
-    - name: set http interface
+    - name: set http interface and dns
       ios_config:
         commands: 
           - http client source interface {{ int }}
+          - ip name-server {{ dns }}
+          - ip domain name {{ domain }}
 
     - name: certificate revocation check
       ios_config:
