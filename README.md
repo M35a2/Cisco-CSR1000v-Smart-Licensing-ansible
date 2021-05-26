@@ -27,6 +27,10 @@ edit vars:
  
  - token
 
+ - dns server
+
+ - domain name
+
 on-prem smart license playbook is for standard smart license led.
 
 edit vars:
@@ -36,3 +40,7 @@ edit vars:
  - interface
  
  - token
+
+ - dns server
+
+ - domain name
