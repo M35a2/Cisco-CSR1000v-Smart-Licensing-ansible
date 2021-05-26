@@ -7,7 +7,7 @@
     int: g1
     token: BUk5FaEZDbHQ0azFraUQzbktheUlnaVlYeXowZDBPenU3RjRu%0AZ0xuVT0%3D%0A
     dns: 8.8.8.8
-    domain-name: example.com
+    domain: example.com
 
   tasks:
     - name: disable tac call-home
@@ -33,7 +33,7 @@
         commands: 
           - http client source interface {{ int }}
           - ip name-server {{ dns }}
-          - ip domain-name {{ domain-name }}
+          - ip domain name {{ domain }}
          
     - name: certificate revocation check
       ios_config:
